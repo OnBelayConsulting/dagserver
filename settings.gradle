@@ -1,0 +1,4 @@
+rootProject.name = 'dagserver'
+include ':construct:dagserverlib',
+        ':construct:dagserverapp',
+		'database'

@@ -1,0 +1,51 @@
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	logicalFilePath="/com/onbelay/dagnabit/table/GRAPH_RELATIONSHIP.xml">
+	
+  <changeSet author="lefeuvrem" id="1.0" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+  
+    
+   <createSequence
+   		incrementBy="1"
+   		sequenceName="GRAPH_RELATIONSHIP_SEQ"
+		cacheSize='100'
+		cycle = "false"
+   		startValue="1"	
+   />
+   
+      <createTable tableName="GRAPH_RELATIONSHIP" tablespace="${tblspace_data}">
+      <column 
+			name="GRAPH_RELATIONSHIP_ID" 
+			defaultValueSequenceNext="GRAPH_RELATIONSHIP_SEQ" 
+			type="java.sql.Types.NUMERIC(10, 0)">
+        <constraints 
+			primaryKey="true" 
+			primaryKeyName="GRAPH_RELATIONSHIP_PK" 
+			nullable="false" />
+      </column>
+      <column name="FROM_GRAPH_NODE_ID" type="java.sql.Types.NUMERIC(10, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="TO_GRAPH_NODE_ID"  type="java.sql.Types.NUMERIC(10, 0)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="RELATIONSHIP_TYPE" type="java.sql.Types.VARCHAR(60)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="RELATIONSHIP_NAME"  type="java.sql.Types.VARCHAR(500)">
+          <constraints nullable="false"/>
+      </column>
+      <column name="RELATIONSHIP_DATA" type="java.sql.Types.VARCHAR(2048)">
+        <constraints nullable="true"/>
+      </column>
+      <column name="ITEM_WEIGHT" remarks="weight." defaultValueNumeric="0" type="java.sql.Types.NUMERIC(10, 0)">
+          <constraints nullable="false"/>
+      </column>
+      <column name="OPTIMISTIC_LOCK_NO" remarks="Version number." defaultValueNumeric="0" type="java.sql.Types.NUMERIC(10, 0)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

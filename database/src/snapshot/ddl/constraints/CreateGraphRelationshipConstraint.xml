@@ -1,0 +1,21 @@
+<databaseChangeLog
+	xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+	xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog-ext
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+	http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd'
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	logicalFilePath='/com/onbelay/dagnabit/CreateGraphRelationshipConstraint.xml'
+>
+	<changeSet
+		author='lefeuvrem'
+		id='CreateGraphRelationshipConstraint'
+	>
+		<addUniqueConstraint
+			columnNames='RELATIONSHIP_TYPE, FROM_GRAPH_NODE_ID, TO_GRAPH_NODE_ID'
+			constraintName='GRAPH_RELATIONSHIP_UX'
+			tableName='GRAPH_RELATIONSHIP'
+			tablespace='${tblspace_data}'
+		/>
+	</changeSet>
+</databaseChangeLog>

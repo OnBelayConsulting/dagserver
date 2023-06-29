@@ -1,0 +1,38 @@
+<databaseChangeLog
+	xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+	xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd'
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	logicalFilePath='/com/onbelay/dagnabitdb/changes/100/Add Xref to GraphNode tables'
+>
+	<changeSet
+		author='onbelay'
+		id='100/1'
+	>
+		<addColumn
+			tableName='GRAPH_NODE'
+		>
+			<column
+				name='EXTERNAL_REF_ID'
+				type='java.sql.Types.NUMERIC(10, 0)'
+			>
+				<constraints nullable='true'/>
+			</column>
+		</addColumn>
+
+		<addColumn
+			tableName='GRAPH_RELATIONSHIP'
+		>
+			<column
+				name='EXTERNAL_REF_ID'
+				type='java.sql.Types.NUMERIC(10, 0)'
+			>
+				<constraints nullable='true'/>
+			</column>
+		</addColumn>
+
+
+	</changeSet>
+
+
+</databaseChangeLog>
